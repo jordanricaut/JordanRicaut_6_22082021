@@ -5,6 +5,7 @@ const path = require('path');
 
 
 const userRoutes = require('./routes/user');
+const saucesRoutes = require('./routes/sauce')
 
 const app = express();
 
@@ -27,8 +28,9 @@ app.use(bodyParser.json());
 
 // Traitement des requêtes vers la route /images
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
+// Traitement des requêtes vers la route /api/auth
 app.use('/api/auth', userRoutes);
-
+// Traitement des requêtes vers la route /api/sauces
+app.use('/api/sauces', saucesRoutes);
 
 module.exports = app;
