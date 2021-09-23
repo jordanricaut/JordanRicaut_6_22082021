@@ -15,7 +15,9 @@ router.post('/', auth, multer, sauceCtrl.createSauce)
 router.get('/:id', auth, sauceCtrl.getOneSauce)
 //Router permettant l'accès vers l'app la fonction getOneSauce
 router.put('/:id', auth, multer, sauceCtrl.modifySauce)
-// Router permettant l'accès vers l'app
+// Router permettant l'accès vers l'app la fonction deleteSauce
 router.delete('/:id', auth, multer, sauceCtrl.deleteSauce)
+// Router permettant l'accès vers l'app la fonction likeOrDislikeSauce
+router.post('/:id/like', auth, sauceCtrl.likeSauce)
 
 module.exports = router;
