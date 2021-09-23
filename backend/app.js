@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+var helmet = require('helmet');
 
 
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauce')
 
 const app = express();
+//app.use(helmet())
 
 mongoose.connect('mongodb+srv://Admin:AdminBdd56@bddpiiquante.dzozu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
