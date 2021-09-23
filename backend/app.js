@@ -1,17 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-var helmet = require('helmet');
+const helmet = require('helmet');
 
 
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauce')
 
 const app = express();
-//app.use(helmet())
+app.use(helmet())
 
-mongoose.connect('mongodb+srv://Admin:AdminBdd56@bddpiiquante.dzozu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://' + process.env.BDD_USER + ':' + process.env.BDD_PSWD + '@bddpiiquante.dzozu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
